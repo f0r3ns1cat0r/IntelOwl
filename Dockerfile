@@ -24,6 +24,7 @@ COPY requirements.txt $PYTHONPATH/requirements.txt
 WORKDIR $PYTHONPATH
 
 RUN pip3 install --no-cache-dir --compile -r requirements.txt
+RUN pip3 install django-memoize git+https://github.com/Eshaan7/django-rest-durin
 # install elasticsearch-dsl's appropriate version as specified by user
 RUN pip3 install --no-cache-dir django-elasticsearch-dsl==${ELASTICSEARCH_DSL_VERSION}
 
