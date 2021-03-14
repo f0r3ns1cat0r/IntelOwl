@@ -20,7 +20,7 @@ django-auth-ldap==2.2.0
 djangorestframework==3.9.4
 dnspython==1.16.0
 docutils==0.15.2
-easygui==0.98.1
+easygui==0.98.2
 fasttext==0.9.1
 flower==0.9.3
 future==0.17.1
