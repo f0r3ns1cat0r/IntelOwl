@@ -35,7 +35,7 @@ jsonschema==3.2.0
 lightgbm==2.1.2
 maxminddb==1.5.4
 more-itertools==7.2.0
-msoffcrypto-tool==4.10.1
+msoffcrypto-tool==4.11.0
 numpy==1.17.1
 olefile==0.46
 oletools==0.56
