@@ -42,7 +42,7 @@ oletools==0.56
 OTXv2==1.5.9
 peepdf==0.4.2
 https://github.com/mlodic/pefile/archive/master.tar.gz
-pluggy==0.13.0
+pluggy==0.13.1
 psycopg2-binary==2.8.4
 py==1.8.0
 pyasn1==0.4.6
