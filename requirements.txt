@@ -51,7 +51,7 @@ pybind11==2.4.2
 pycparser==2.19
 pydeep==0.4
 pyexifinfo==0.4.0
-pymisp==2.4.126
+pymisp==2.4.144
 pyparsing==2.4.2
 pypdns==1.4.1
 pypssl==2.1
