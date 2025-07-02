@@ -70,7 +70,7 @@ class Quad9MaliciousDetector(DoHMixin, classes.ObservableAnalyzer):
                 quad9_response = httpx.Client(http2=True).get(
                     complete_url, headers=self.headers, timeout=10
                 )
-            except httpx.ConnectionError as exception:
+            except httpx.ConnectError as exception:
                 # if the last attempt fails, raise an error
                 if attempt == attempt_number - 1:
                     raise exception
