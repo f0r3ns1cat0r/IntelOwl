@@ -45,7 +45,7 @@ function CustomRedirect() {
   }, []);
 
   const startDatetime = structuredClone(endDatetime);
-  startDatetime.setDate(startDatetime.getDate() - 30);
+  startDatetime.setDate(startDatetime.getDate() - 7);
 
   return (
     <Navigate

@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import { Spinner } from "reactstrap";
 
 import { useSearchParams } from "react-router-dom";
-import { format, toDate } from "date-fns";
 
-import { datetimeFormatStr, HistoryPages } from "../../constants/miscConst";
+import { HistoryPages } from "../../constants/miscConst";
 import { JobsTable } from "../jobs/table/JobsTable";
 import { InvestigationTable } from "../investigations/table/InvestigationsTable";
 import { UserEventsTable } from "../userEvents/UserEventsTable";
@@ -33,12 +32,8 @@ export default function HistoryTable({
   const analyzedObjectNameParam =
     searchParams.get("analyzed_object_name") || "";
 
-  // default: 30days
-  const defaultFromDate = new Date();
-  defaultFromDate.setDate(defaultFromDate.getDate() - 30);
-  const [searchFromDateValue, setSearchFromDateValue] =
-    React.useState(defaultFromDate);
-  const [searchToDateValue, setSearchToDateValue] = React.useState(new Date());
+  const [searchFromDateValue] = React.useState(startTimeParam);
+  const [searchToDateValue] = React.useState(endTimeParam);
 
   // state
   const [areParamsInitialized, setAreParamsInitialized] = React.useState(false); // used to prevent a request with wrong params
@@ -46,12 +41,6 @@ export default function HistoryTable({
   const [searchNameRequest, setSearchNameRequest] = React.useState("");
 
   React.useEffect(() => {
-    if (startTimeParam) {
-      setSearchFromDateValue(toDate(startTimeParam));
-    }
-    if (endTimeParam) {
-      setSearchToDateValue(toDate(endTimeParam));
-    }
     if (analyzedObjectNameParam) {
       setSearchNameRequest(analyzedObjectNameParam);
     }
@@ -63,8 +52,8 @@ export default function HistoryTable({
     // Note: this check is required to avoid infinite loop (url update time picker and time picker update url)
     if (
       areParamsInitialized &&
-      (startTimeParam !== format(searchFromDateValue, datetimeFormatStr) ||
-        endTimeParam !== format(searchToDateValue, datetimeFormatStr) ||
+      (startTimeParam !== searchFromDateValue ||
+        endTimeParam !== searchToDateValue ||
         analyzedObjectNameParam !== searchNameRequest)
     ) {
       const currentParams = {};
@@ -75,11 +64,8 @@ export default function HistoryTable({
       });
 
       const newParams = { ...currentParams };
-      newParams[startTimeParam] = format(
-        searchFromDateValue,
-        datetimeFormatStr,
-      );
-      newParams[endTimeParam] = format(searchToDateValue, datetimeFormatStr);
+      newParams[startTimeParam] = searchFromDateValue;
+      newParams[endTimeParam] = searchToDateValue;
       if (pageType === HistoryPages.INVESTIGAITONS) {
         newParams.analyzed_object_name = searchNameRequest;
       }
