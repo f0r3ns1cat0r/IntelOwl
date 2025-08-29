@@ -37,7 +37,7 @@ export const userEventsTableStartColumns = [
   },
   {
     Header: "User",
-    id: "username",
+    id: "user",
     accessor: "user",
     Cell: ({ value, row }) => (
       <TableCell
