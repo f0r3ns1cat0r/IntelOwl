@@ -72,8 +72,8 @@ export function UserEventModal({ analyzables, toggle, isOpen }) {
       malware_family: "",
       // advanced fields
       reliability: 10,
-      decay_progression: DecayProgressionTypes.FIXED,
-      decay_timedelta_days: 0,
+      decay_progression: DecayProgressionTypes.LINEAR,
+      decay_timedelta_days: 120,
     },
     validate: (values) => {
       console.debug("validate - values");
