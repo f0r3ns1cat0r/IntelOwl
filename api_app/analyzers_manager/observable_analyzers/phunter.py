@@ -5,7 +5,6 @@ import requests
 
 from api_app.analyzers_manager.classes import DockerBasedAnalyzer, ObservableAnalyzer
 from api_app.analyzers_manager.exceptions import AnalyzerRunException
-from tests.mock_utils import MockUpResponse
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -50,26 +49,5 @@ class PhunterAnalyzer(ObservableAnalyzer, DockerBasedAnalyzer):
             raise AnalyzerRunException(f"{self.name} An unexpected error occurred: {e}")
 
     @classmethod
-    def update(self):
+    def update(cls):
         pass
-
-    @staticmethod
-    def mocked_docker_analyzer_post(*args, **kwargs):
-        mock_response = {
-            "success": True,
-            "report": {
-                "valid": "yes",
-                "views": "9",
-                "carrier": "Vodafone",
-                "location": "India",
-                "operator": "Vodafone",
-                "possible": "yes",
-                "line_type": "FIXED LINE OR MOBILE",
-                "local_time": "21:34:45",
-                "spam_status": "Not spammer",
-                "phone_number": "+911234567890",
-                "national_format": "01234567890",
-                "international_format": "+91 1234567890",
-            },
-        }
-        return MockUpResponse(mock_response, 200)
