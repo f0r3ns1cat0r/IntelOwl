@@ -210,6 +210,7 @@ export function AnalyzableOverview({ analyzable }) {
               <VerticalListVisualizer
                 id={`vlist-visualizer__element-${index}`}
                 alignment="center"
+                startOpen={values.length <= 5}
                 name={
                   <BaseVisualizer
                     value={`${title} (${values.length})`}
@@ -221,7 +222,6 @@ export function AnalyzableOverview({ analyzable }) {
                 values={values}
                 size="col-2"
                 disable={values.length === 0}
-                startOpen
               />
             ))}
           />
