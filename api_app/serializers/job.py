@@ -1306,6 +1306,9 @@ class JobAnalyzableHistorySerializer(rfs.ModelSerializer):
         fields = ["playbook", "user", "date", "data_model", "id"]
 
     def get_data_model(self, instance: Job):
+        logger.debug(f"{instance=}")
+        logger.debug(f"{instance.analyzable=}")
+
         if instance.data_model:
             return instance.data_model.serialize()
         return {}
