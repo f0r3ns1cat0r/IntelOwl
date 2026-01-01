@@ -22,11 +22,11 @@ Please take time to explore this new section in the GUI and provide feedback!
 
 As usual, we add new plugins. This release brings the following new ones:
 * [Hunting Abuse.ch](https://hunting.abuse.ch/api/): new central API for Abuse.ch
-* [YaraX](https://virustotal.github.io/yara-x/docs/intro/getting-started/ integration: you can now run your Yara rule with the new engine written in Rust
+* [YaraX](https://virustotal.github.io/yara-x/docs/intro/getting-started/) integration: you can now run your Yara rules with the new engine written in Rust
 * Now [Floss](https://github.com/mandiant/flare-floss) and [Capa](https://github.com/mandiant/capa) are integrated directly in the main container so you don't need anymore to run the optional container `malware_tools_analyzers" for them.
 * [Phunter](https://github.com/N0rz3/Phunter) which requires the execution of a new optional container with `--phunter`.
 * [JoeSandbox](https://www.joesandbox.com/), a malware analysis tool.
-* ExpandURL which takes a shortened URL and provides us the actual expanded URL, along with full redirection chain.
+* "ExpandURL" which takes a shortened URL and provides us the actual expanded URL, along with full redirection chain.
 
 We don't mention here all the other adjustments, fixes and dependencies upgrades. Please check the full changelog for that.
 
